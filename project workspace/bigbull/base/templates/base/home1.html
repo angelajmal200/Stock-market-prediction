@@ -13,14 +13,15 @@
  *
 */
  -->
+ {% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
 	<head>
 		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
-		<title>slide_16_9___1</title>
+		<title>Big Bull</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="" >
-		<link rel="StyleSheet" href="slide_16_9___1.css" />
+		<link rel="StyleSheet" href="{% static 'styles/slide_16_9___1.css' %}" />
 		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
 		<!-- Add your custom HEAD content here -->
 
@@ -39,7 +40,7 @@
 				Union Christian College , Aluva was established  in 1921 as an ecumenical, Indian Christian initiative in the field of higher education in Kerala. The college was founded by four young visionaries <span class="char">%E2%80%93 </span> Shri. K.C. Chacko, Shri. A.M. Varki, Shri. C.P. Mathew and Shri. V.M. Ittyerah, who were  alumni of Madras Christian College. Providentially inspired by their Christian faith and commitment, they envisaged the  institution as a center based on the values of integrity and social commitment, promoting learning and culture. A sprawling green campus spread over 40 acres, the college is located on the banks of river Periyar, about 12 kilometers away from the Cochin International Airport.  Affiliated to Mahatma Gandhi University, Kottayam, the institution is known for its academic excellence and research potential. The college has 18 academic departments, with around 1900 students and 160 faculty members.
 			</div>
 			<div id="vision_serve_the_nation_by_facilitating_and_modeling_wholesome_and_socially_relevant_education_to_actualize_the_values_of_humanism_in_accordance_with_the_revelation_in_jesus_christ__mission_the_union_christian_college__extending_god_s_love_to_all__is_committed_to_providing_such_education_that_facilitates_the_growth_of_the_whole_person_and_brings_out_the_best_in_him_or_her_that_they_would_serve_our_nation_and_humanity_at_large_and_the_ecosystem__as_intellectually_competent__morally_upright_and_spiritually_inspired_persons_" >
-				Vision<br/><br/><br/><br/>Serve the nation by facilitating and modeling wholesome and socially relevant education to actualize the values of humanism in accordance with the revelation in Jesus Christ.<br/><br/><br/><br/>Mission<br/><br/><br/><br/>The Union Christian College, extending God's love to all, is committed to providing such education that facilitates the growth of the whole person and brings out the best in him or her that they would serve our nation and humanity at large and the ecosystem, as intellectually competent, morally upright and spiritually inspired persons.<br/><br/>
+				Vision<br/><br/><br/><br/>Serve the nation by facilitating and modeling wholesome and socially relevant education to actualize the values of humanism in accordance with the revelation in Jesus Christ.<br/><br/><br/><br/>
 			</div>
 			<div id="goals___objectives_the_vision_and_mission_of_the_college_are_well_aligned_with_the_objectives_of_the_higher_education_policy_of_the_nation__the_goals_and_objectives_of_the_college_are_four_fold__academic_goals__social_goals__character_building_and_value_orientation__the_college_commits_itself_to_the_promotion_of_justice_and_peace__preservation_and_enhancement_of_the_integrity_of_creation__fostering_of_a_wholesome_simple_life_style_combating_the_ill_effects_of_corruption__powerlessness_of_the_marginalized__violence_and_criminalization__empowering_the_powerless__particularly_the_tribals__dalits__women_and_other_vulnerable_sections_of_the_society_form_a_significant_part_of_this_commitment__it_seeks_to_nurture_probity_in_public_life_and_to_promote_national_integration_" >
 				Goals &amp; Objectives<br/><br/><br/><br/>The Vision and Mission of the College are well aligned with the objectives of the higher education policy of the nation. The goals and objectives of the College are four-fold; academic goals, social goals, character building and value orientation. The College commits itself to the promotion of justice and peace, preservation and enhancement of the integrity of creation, fostering of a wholesome simple life style combating the ill-effects of corruption, powerlessness of the marginalized, violence and criminalization. Empowering the powerless, particularly the tribals,  dalits, women and other vulnerable sections of the society form a significant part of this commitment. It seeks to nurture probity in public life and to promote national integration.
@@ -47,22 +48,26 @@
 			<div id="discover_our_story" >
 				Discover<br/>Our Story<br/>
 			</div>
-			<img src="skins/python_1.png" id="python_1" />
-			<img src="skins/python__1__1.png" id="python__1__1" />
-			<img src="skins/python__2__1.png" id="python__2__1" />
+			<img src="{% static 'images/python_1.png' %}" id="python_1" />
+			<img src="{% static 'images/python__1__1.png' %}" id="python__1__1" />
+			<img src="{% static 'images/python__2__1.png' %}" id="python__2__1" />
 			<div id="rectangle_4"  ></div>
 			<div id="rectangle_1"  ></div>
-			<div id="rectangle_3"  ></div>
-			<img src="skins/big_bull__2__1.png" id="big_bull__2__1" />
+			<div id="rectangle_3"  >
+				<form action="" method="">
+					<input type="text" id="rectangle_3" placeholder="  Search..." name="search" style="	font-family: Inter; font-size: 32px;">
+				</form>
+			</div>
+			<img src="{% static 'images/big_bull__2__1.png' %}" id="big_bull__2__1" />
 			<div id="search" >
 				Search
 			</div>
-			<div id="login" >
-				Login
-			</div>
-			<div id="sign_up" >
-				Sign Up
-			</div>
+			
+				<a href=""><div id="login" >Login</div></a>
+
+			
+				<a href="{% url 'register' %}"><div id="sign_up" >Sign Up</div></a> 
+
 			<div id="news" >
 				News
 			</div>

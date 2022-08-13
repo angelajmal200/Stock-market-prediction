@@ -156,6 +156,8 @@ div { position: absolute; }
 
 
 #rectangle_3 {
+	font-family: Inter;
+	font-size: 32px;
 	top: 65px;
 	left: 411px;
 	width: 507px;
@@ -165,9 +167,16 @@ div { position: absolute; }
 	-moz-border-radius: 20px;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
-	background:rgba(217,217,217,1);
+	background:rgb(255, 255, 255);
+
+	
 }
 
+input[type="text"]
+{
+	font-family: Inter;
+	font-size: 32px;
+}
 
 #big_bull__2__1 {
 	top: -9px;
@@ -192,6 +201,8 @@ div { position: absolute; }
 
 
 #login {
+	color: inherit;
+	text-decoration: none;
 	top: 77px;
 	left: 1568px;
 	width: 108px;
@@ -201,7 +212,7 @@ div { position: absolute; }
 	font-size: 32px;
 	font-weight: bold;
 	text-align: center;
-	color:#FFFFFF;
+	color:#fdfdfd;
 }
 
 
