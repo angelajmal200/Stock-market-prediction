@@ -73,6 +73,24 @@ div { position: absolute; }
 	color:#000000;
 }
 
+#uk
+{	
+	top: 503px;
+	left: 201px;
+	width: 3056px;
+	height: 1559px;
+	overflow: hidden;
+	font-family: Bellefair;
+	font-size: 32px;
+	text-align: justified;
+	color:#000000;
+
+}
+.main {
+	flex: 30%; /* Set the width of the main content */
+	background-color: white; /* White background color */
+	padding: 100px; /* Some padding */
+  }
 
 #vision_serve_the_nation_by_facilitating_and_modeling_wholesome_and_socially_relevant_education_to_actualize_the_values_of_humanism_in_accordance_with_the_revelation_in_jesus_christ__mission_the_union_christian_college__extending_god_s_love_to_all__is_committed_to_providing_such_education_that_facilitates_the_growth_of_the_whole_person_and_brings_out_the_best_in_him_or_her_that_they_would_serve_our_nation_and_humanity_at_large_and_the_ecosystem__as_intellectually_competent__morally_upright_and_spiritually_inspired_persons_ {
 	top: 1570px;
@@ -216,6 +234,7 @@ input[type="text"]
 }
 
 
+
 #sign_up {
 	top: 77px;
 	left: 1363px;
@@ -231,6 +250,7 @@ input[type="text"]
 
 
 #news {
+
 	top: 77px;
 	left: 1191px;
 	width: 109px;
@@ -241,8 +261,21 @@ input[type="text"]
 	font-weight: bold;
 	text-align: center;
 	color:#FFFFFF;
+	text-decoration:none;
 }
 
+#user {
+	top: 80px;
+	left: 1731px;
+	width: 87px;
+	height: 28px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	color: #FFFFFF;
+	}
 
 #aapl__2_5_ {
 	top: 188px;

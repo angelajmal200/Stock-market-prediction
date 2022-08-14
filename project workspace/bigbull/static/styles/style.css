@@ -121,6 +121,12 @@ body {
   line-height: 3;
   color: #181818;
 }
+.title1 {
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 3;
+  color: #181818;
+}
 
 .description {
   font-size: 14px;

@@ -62,15 +62,46 @@
 			<div id="search" >
 				Search
 			</div>
+			<div id="user" style="	top: 80px;
+			left: 1731px;
+			width: 87px;
+			height: 35px;
+			overflow: hidden;
+			font-family: Inter;
+			font-size: 32px;
+			font-weight: bold;
+			text-align: center;
+			color: #FFFFFF;
+			text-decoration:none;" >
+			{% if user.is_authenticated %}
+			{{ user.username }}
+
+		</div>
 			
-				<a href=""><div id="login" >Login</div></a>
+		<a href="{% url 'logout' %}"><div id="login" >Logout</div></a>
+			
+			{% else %}
+			</div>
+			
+				<a href="{% url 'login' %}"><div id="login" >Login</div></a>
 
 			
 				<a href="{% url 'register' %}"><div id="sign_up" >Sign Up</div></a> 
-
-			<div id="news" >
-				News
+			{% endif %}
+			<div id="news">
+				<a href="{% url 'snews' %}" style="	top: 77px;
+				left: 1191px;
+				width: 109px;
+				height: 51px;
+				overflow: hidden;
+				font-family: Inter;
+				font-size: 32px;
+				font-weight: bold;
+				text-align: center;
+				color:#FFFFFF;
+				text-decoration:none;">News</a>
 			</div>
+
 			<div id="aapl__2_5_" >
 				<span style="font-style:normal; text-decoration:NONE; ">AAPL </span><span style="color:#13E875; font-style:normal; text-decoration:NONE; ">+2.5</span>
 			</div>
