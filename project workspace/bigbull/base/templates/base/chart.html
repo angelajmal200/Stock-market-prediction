@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -138,13 +139,22 @@ body {
   
 
 </div>
-
-{{chart1|safe}}
+<div><h1>Stock Chart</h1></div>
+<br>
 <div>
-  {{chart2|safe}}
+    {{chart|safe}}
 </div>
+<div><h1>Expeted Price chart</h1></div>
 <div>
-  {{chart3|safe}}
+    {{chart1|safe}}
+</div>
+<div><h1>Trend View Of The Stock</h1></div>
+<div>
+    <img src="{% static 'images/fig3.png' %}" alt="">
+</div>
+
+<div>
+    <h2>In 6 years maximum expected return will be : {{ percentage1 }} %<h2>
 </div>
 
 <div class="footer">
