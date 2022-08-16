@@ -17,14 +17,150 @@ from plotly.offline import plot
 import plotly.express as px
 import kaleido
 from matplotlib import pyplot as plt
+import pandas as pd
+import json
 
 # Create your views here.
 def home(request):
+
+
+
     name="Big Bull"
     content={'name':name}
     return render(request,"base\home1.html",content)
 
 def chart(request):
+
+    #stock data retriving
+
+    marketinfo = yf.Ticker("SBIN.NS")
+    longBusinessSummary=marketinfo.info['longBusinessSummary']
+    website=marketinfo.info['website']
+    logo_url=marketinfo.info['logo_url']
+    currentPrice=marketinfo.info['currentPrice']
+    longName=marketinfo.info['longName']
+    previousClose=marketinfo.info['previousClose']
+    changeinper=((currentPrice-previousClose)/previousClose)*100
+    changeinper="{:.2f}".format(changeinper)
+
+    #stock data in table format
+    profitMargins=marketinfo.info['profitMargins']
+    revenueGrowth=marketinfo.info['revenueGrowth']
+    operatingMargins=marketinfo.info['operatingMargins']
+    targetLowPrice=marketinfo.info['targetLowPrice']
+    recommendationKey=marketinfo.info['recommendationKey']
+    grossProfits=marketinfo.info['grossProfits']
+    targetMedianPrice=marketinfo.info['targetMedianPrice']
+    targetMeanPrice=marketinfo.info['targetMeanPrice']
+    returnOnEquity=marketinfo.info['returnOnEquity']
+    targetHighPrice=marketinfo.info['targetHighPrice']
+    totalCash=marketinfo.info['totalCash']
+    totalDebt=marketinfo.info['totalDebt']
+    totalRevenue=marketinfo.info['totalRevenue']
+    totalCashPerShare=marketinfo.info['totalCashPerShare']
+    revenuePerShare=marketinfo.info['revenuePerShare']
+    recommendationMean=marketinfo.info['recommendationMean']
+    enterpriseToRevenue=marketinfo.info['enterpriseToRevenue']
+    FWeekChange=marketinfo.info['52WeekChange']
+    forwardEps=marketinfo.info['forwardEps']
+    sharesOutstanding=marketinfo.info['sharesOutstanding']
+    bookValue=marketinfo.info['bookValue']
+    lastFiscalYearEnd=marketinfo.info['lastFiscalYearEnd']
+    heldPercentInstitutions=marketinfo.info['heldPercentInstitutions']
+    netIncomeToCommon=marketinfo.info['netIncomeToCommon']
+    trailingEps=marketinfo.info['trailingEps']
+    lastDividendValue=marketinfo.info['lastDividendValue']
+    SandP52WeekChange=marketinfo.info['SandP52WeekChange']
+    priceToBook=marketinfo.info['priceToBook']
+    earningsQuarterlyGrowth=marketinfo.info['earningsQuarterlyGrowth']
+    priceToSalesTrailing12Months=marketinfo.info['priceToSalesTrailing12Months']
+    pegRatio=marketinfo.info['pegRatio']
+    forwardPE=marketinfo.info['forwardPE']
+    regularMarketOpen=marketinfo.info['regularMarketOpen']
+    twoHundredDayAverage=marketinfo.info['twoHundredDayAverage']
+    payoutRatio=marketinfo.info['payoutRatio']
+    regularMarketDayHigh=marketinfo.info['regularMarketDayHigh']
+    averageDailyVolume10Day=marketinfo.info['averageDailyVolume10Day']
+    regularMarketPreviousClose=marketinfo.info['regularMarketPreviousClose']
+    fiftyDayAverage=marketinfo.info['fiftyDayAverage']
+    open=marketinfo.info['open']
+    averageVolume10days=marketinfo.info['averageVolume10days']
+    dividendRate=marketinfo.info['dividendRate']
+    regularMarketDayLow=marketinfo.info['regularMarketDayLow']
+    trailingPE=marketinfo.info['trailingPE']
+    regularMarketVolume=marketinfo.info['regularMarketVolume']
+    marketCap=marketinfo.info['marketCap']
+    fiftyTwoWeekHigh=marketinfo.info['fiftyTwoWeekHigh']
+    fiftyTwoWeekLow=marketinfo.info['fiftyTwoWeekLow']
+    dayLow=marketinfo.info['dayLow']
+    dayHigh=marketinfo.info['dayHigh']
+    regularMarketPrice=marketinfo.info['regularMarketPrice']
+
+
+    datas=[['profitMargins',profitMargins],
+    ['revenueGrowth',revenueGrowth],
+    ['operatingMargins',operatingMargins],
+    ['targetLowPrice',targetLowPrice],
+    ['recommendationKey',recommendationKey],
+    ['grossProfits',grossProfits],
+    ['targetMedianPrice',targetMedianPrice],
+    ['targetMeanPrice',targetMeanPrice],
+    ['returnOnEquity',returnOnEquity],
+    ['targetHighPrice',targetHighPrice],
+    ['totalCash',totalCash],
+    ['totalDebt',totalDebt],
+    ['totalRevenue',totalRevenue],
+    ['totalCashPerShare',totalCashPerShare],
+    ['revenuePerShare',revenuePerShare],
+    ['recommendationMean',recommendationMean],
+    ['enterpriseToRevenue',enterpriseToRevenue],
+    ['52WeekChange',FWeekChange],
+    ['forwardEps',forwardEps],
+    ['sharesOutstanding',sharesOutstanding],
+    ['bookValue',bookValue],
+    ['lastFiscalYearEnd',lastFiscalYearEnd],
+    ['heldPercentInstitutions',heldPercentInstitutions],
+    ['netIncomeToCommon',netIncomeToCommon],
+    ['trailingEps',trailingEps],
+    ['lastDividendValue',lastDividendValue],
+    ['SandP52WeekChange',SandP52WeekChange],
+    ['priceToBook',priceToBook],
+    ['earningsQuarterlyGrowth',earningsQuarterlyGrowth],
+    ['priceToSalesTrailing12Months',priceToSalesTrailing12Months],
+    ['pegRatio',pegRatio],
+    ['forwardPE',forwardPE],
+    ['regularMarketOpen',regularMarketOpen],
+    ['twoHundredDayAverage',twoHundredDayAverage],
+    ['payoutRatio',payoutRatio],
+    ['regularMarketDayHigh',regularMarketDayHigh],
+    ['averageDailyVolume10Day',averageDailyVolume10Day],
+    ['regularMarketPreviousClose',regularMarketPreviousClose],
+    ['fiftyDayAverage',fiftyDayAverage],
+    ['open',open],
+    ['averageVolume10days',averageVolume10days],
+    ['dividendRate',dividendRate],
+    ['regularMarketDayLow',regularMarketDayLow],
+    ['trailingPE',trailingPE],
+    ['regularMarketVolume',regularMarketVolume],
+    ['marketCap',marketCap],
+    ['fiftyTwoWeekHigh',fiftyTwoWeekHigh],
+    ['fiftyTwoWeekLow',fiftyTwoWeekLow],
+    ['dayLow',dayLow],
+    ['dayHigh',dayHigh],
+    ['regularMarketPrice',regularMarketPrice],]
+
+    market = pd.DataFrame(datas, columns=['Name', 'Value'])
+    market.to_csv('static/files/file2.csv')
+    market = pd.read_csv("static/files/file2.csv")
+
+    # parsing the DataFrame in json format.
+    json_records = market.reset_index().to_json(orient ='records')
+    market = []
+    market= json.loads(json_records)
+
+
+  
+
 
     START="2015-01-01"
     TODAY=date.today().strftime("%Y-%m-%d")
@@ -40,7 +176,7 @@ def chart(request):
         return data
 
     data=load_data(selected_stocks)
-        
+
     #fig=px.line(x=data['Date'],y=data['Open'])
     #fig.add_trace(go.Scatter(x=data['Date'],y=data['Close']))
     fig=go.Figure()
@@ -91,7 +227,17 @@ def chart(request):
     percentage=((int(lvalue)-int(value))/int(lvalue))*100
     percentage="{:.2f}".format(percentage)
 
-    context={'chart':chart,'chart1':chart1,'percentage1':percentage}
+    context={'chart':chart,'chart1':chart1,'percentage1':percentage,
+    'd': market,
+    'longBusinessSummary':longBusinessSummary,
+    'website':website,
+    'logo_url':logo_url,
+    'currentPrice':currentPrice,
+    'longName':longName,
+    'previousClose':previousClose,
+    'changeinper':changeinper
+    }
+
     return render(request,'base/chart.html',context)
     
 def dashboard(request):
